@@ -11,11 +11,13 @@ else
 fi
 
 # Make sure the cluster is running and get the ip_address
-ip_addr=$(bx cs workers $PIPELINE_KUBERNETES_CLUSTER_NAME | grep normal | awk '{ print $2 }')
-if [ -z $ip_addr ]; then
-  echo "$PIPELINE_KUBERNETES_CLUSTER_NAME not created or workers not ready"
-  exit 1
-fi
+IPS=$(ibmcloud ks workers $PIPELINE_KUBERNETES_CLUSTER_NAME | grep normal | awk '{ print $2 }')
+for ip_addr in $IPS; do
+  if [ -z $ip_addr ]; then
+    echo "$PIPELINE_KUBERNETES_CLUSTER_NAME not created or workers not ready"
+    exit 1
+  fi
+done
 
 # substitute image name
 sed -i 's/TEST_NODEJS_IMAGE_NAME/'"$TEST_NODEJS_IMAGE_NAME"'/g' manifests/test.yaml
