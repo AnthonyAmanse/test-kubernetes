@@ -63,7 +63,15 @@
           "pattern": "\\S"
       }
   },
-  "required": ["app-name", "api-key", "registry-region", "registry-namespace", "prod-region", "prod-resource-group", "prod-cluster-name"],
+  "required": [
+    "app-name",
+    "api-key",
+    "registry-region",
+    "registry-namespace",
+    "prod-region",
+    "prod-resource-group",
+    "prod-cluster-name"
+  ],
   "form": [
      {
         "type": "validator",
