@@ -1,0 +1,22 @@
+{
+  "name": "test-kubernetes",
+  "version": "1.0.0",
+  "description": "",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AnthonyAmanse/test-kubernetes.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AnthonyAmanse/test-kubernetes/issues"
+  },
+  "homepage": "https://github.com/AnthonyAmanse/test-kubernetes#readme",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}

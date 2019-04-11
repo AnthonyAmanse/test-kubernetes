@@ -1,0 +1,20 @@
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  annotations:
+    ingress.bluemix.net/redirect-to-https: "True"
+  name: ingress
+spec:
+  tls:
+    - hosts:
+        - anthony-dev.us-south.containers.appdomain.cloud
+      secretName: anthony-dev
+  rules:
+    - host: anthony-dev.us-south.containers.appdomain.cloud
+      http:
+        paths:
+          - path: /test
+            backend:
+              serviceName: test-nodejs
+              servicePort: 8080
