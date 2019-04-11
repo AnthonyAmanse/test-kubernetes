@@ -1,4 +1,5 @@
 #!/bin/bash
+
 echo -e "Build environment variables:"
 echo "REGISTRY_URL=${REGISTRY_URL}"
 echo "REGISTRY_NAMESPACE=${REGISTRY_NAMESPACE}"
@@ -23,3 +24,17 @@ echo -e "Building container image"
 set -x
 bx cr build -t $REGISTRY_URL/$REGISTRY_NAMESPACE/$IMAGE_NAME:$GIT_COMMIT .
 set +x
+
+# devops pipeline specific
+# using build.properties to pass env variables
+
+echo "Checking archive dir presence"
+cp -R -n ./ $ARCHIVE_DIR/ || true
+
+# Record git info to later contribute to umbrella chart repo
+TEST_NODEJS_IMAGE_NAME=$REGISTRY_URL/$REGISTRY_NAMESPACE/$IMAGE_NAME:$GIT_COMMIT
+
+mkdir -p $ARCHIVE_DIR
+echo "TEST_NODEJS_IMAGE_NAME=${TEST_NODEJS_IMAGE_NAME}" >> $ARCHIVE_DIR/build.properties
+
+cat $ARCHIVE_DIR/build.properties

@@ -29,7 +29,7 @@ spec:
         app: test-nodejs
     spec:
       containers:
-        - image: anthonyamanse/test-express:1.0
+        - image: TEST_NODEJS_IMAGE_NAME
           imagePullPolicy: Always
           name: test-nodejs
           ports:
