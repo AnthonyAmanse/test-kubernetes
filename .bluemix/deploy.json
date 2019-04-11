@@ -55,13 +55,6 @@
           "type": "string",
           "pattern": "\\S"
       },
-      "prod-cluster-namespace": {
-        "description": {
-          "$ref" : "#/messages/deploy.namespaceDescription"
-        },
-        "type": "string",
-        "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
-      },
      "app-name": {
           "description": {
             "$ref": "#/messages/deploy.appDescription"
@@ -70,7 +63,7 @@
           "pattern": "\\S"
       }
   },
-  "required": ["app-name", "api-key", "registry-region", "registry-namespace", "prod-region", "prod-resource-group", "prod-cluster-name", "prod-cluster-namespace"],
+  "required": ["app-name", "api-key", "registry-region", "registry-namespace", "prod-region", "prod-resource-group", "prod-cluster-name"],
   "form": [
      {
         "type": "validator",
@@ -160,9 +153,7 @@
               },
               {
                 "type": "label",
-                "title": {
-                  "$ref": "#/messages/deploy.clusterNs"
-                }
+                "title": ""
               },{
                 "type": "select",
                 "key": "prod-region"
