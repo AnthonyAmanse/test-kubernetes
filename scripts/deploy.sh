@@ -20,7 +20,7 @@ for ip_addr in $IPS; do
 done
 
 # substitute image name
-sed -i 's/TEST_NODEJS_IMAGE_NAME/'"$TEST_NODEJS_IMAGE_NAME"'/g' manifests/test.yaml
+sed -i "s#TEST_NODEJS_IMAGE_NAME#${TEST_NODEJS_IMAGE_NAME}#" manifests/test.yaml
 
 # show yaml file
 cat manifests/test.yaml
