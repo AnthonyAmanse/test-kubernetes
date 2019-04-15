@@ -28,13 +28,22 @@ set +x
 # devops pipeline specific
 # using build.properties to pass env variables
 
-# echo "Checking archive dir presence"
-# cp -R -n ./ $ARCHIVE_DIR/ || true
+echo "Checking archive dir presence"
+if [ -z "${ARCHIVE_DIR}" ]; then
+    echo -e "Build archive directory contains entire working directory."
+else
+    echo -e "Copying working dir into build archive directory: ${ARCHIVE_DIR} "
+    mkdir -p ${ARCHIVE_DIR}
+    find . -mindepth 1 -maxdepth 1 -not -path "./$ARCHIVE_DIR" -exec cp -R '{}' "${ARCHIVE_DIR}/" ';'
+fi
 
-# Record git info to later contribute to umbrella chart repo
+# If already defined build.properties from prior build job, append to it.
+cp build.properties $ARCHIVE_DIR/ || :
+
+# TEST_NODEJS_IMAGE_NAME name from build.properties will be used in deploy script
 TEST_NODEJS_IMAGE_NAME=$REGISTRY_URL/$REGISTRY_NAMESPACE/$IMAGE_NAME:$GIT_COMMIT
 
-mkdir -p $ARCHIVE_DIR
+# write to build.properties
 echo "TEST_NODEJS_IMAGE_NAME=${TEST_NODEJS_IMAGE_NAME}" >> $ARCHIVE_DIR/build.properties
 
 cat $ARCHIVE_DIR/build.properties
