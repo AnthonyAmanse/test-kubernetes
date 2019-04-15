@@ -169,7 +169,9 @@
               },
               {
                 "type": "label",
-                "title": ""
+                "title": {
+                  "$ref": "#/messages/deploy.clusterNs"
+                }
               },{
                 "type": "select",
                 "key": "prod-region"

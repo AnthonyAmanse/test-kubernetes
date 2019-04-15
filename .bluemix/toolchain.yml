@@ -57,6 +57,6 @@ form:
   pipeline:
     parameters:
       app-name: '{{services.repo.parameters.repo_name}}'
-      prod-cluster-namespaces: default
+      prod-cluster-namespace: default
     schema:
       $ref: deploy.json
