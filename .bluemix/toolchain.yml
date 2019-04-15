@@ -50,6 +50,7 @@ services:
           PROD_RESOURCE_GROUP: '{{form.pipeline.parameters.prod-resource-group}}'
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
           PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
+          USER_INPUT_TWILIO_API_KEY: '{{form.pipeline.parameters.twilio-api-key}}'
         execute: true
   # webide:
   #   service_id: orion

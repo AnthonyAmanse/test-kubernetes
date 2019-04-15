@@ -32,5 +32,8 @@ spec:
         - image: TEST_NODEJS_IMAGE_NAME
           imagePullPolicy: Always
           name: test-nodejs
+          env:
+          - name: TWILIO_API_KEY
+            value: USER_INPUT_TWILIO_API_KEY
           ports:
             - containerPort: 8080

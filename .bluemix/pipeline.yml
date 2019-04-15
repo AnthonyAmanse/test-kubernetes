@@ -40,6 +40,8 @@ stages:
     type: file
   - name: CLUSTER_NAMESPACE
     value: ${PROD_CLUSTER_NAMESPACE}
+  - name: TWILIO_API_KEY
+    value: ${USER_INPUT_TWILIO_API_KEY}
   jobs:
   - name: Deploy to Kubernetes
     type: deployer
