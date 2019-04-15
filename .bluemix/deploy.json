@@ -68,6 +68,11 @@
           },
           "type": "string",
           "pattern": "\\S"
+      },
+      "twilio-apikey": {
+          "description": "Your Twilio API key",
+          "type": "string",
+          "pattern": "\\S"
       }
   },
   "required": [
@@ -78,7 +83,8 @@
     "prod-region",
     "prod-resource-group",
     "prod-cluster-name",
-    "prod-cluster-namespace"
+    "prod-cluster-namespace",
+    "twilio-apikey"
   ],
   "form": [
      {
@@ -225,6 +231,11 @@
                 }
               }
           ]
+      },{
+        "type": "text",
+        "readonly": false,
+        "title": "Twilio API key",
+        "key": "twilio-apikey"
       }
   ]
 }
