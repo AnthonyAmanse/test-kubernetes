@@ -21,7 +21,6 @@ done
 
 # substitute image name
 sed -i "s#TEST_NODEJS_IMAGE_NAME#${TEST_NODEJS_IMAGE_NAME}#" manifests/test.yaml
-sed -i "s#YOUR_TWILIO_APIKEY#${TWILIO_APIKEY}#" manifests/test.yaml
 
 # show yaml file
 cat manifests/test.yaml

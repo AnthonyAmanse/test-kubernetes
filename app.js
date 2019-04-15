@@ -1,10 +1,9 @@
 const express = require("express");
 const app = express();
 
-let TWILIO_APIKEY = process.env.TWILIO_APIKEY
 
 app.get("/test", function(req, res) {
-  res.send({"text":"hello world","apikey": TWILIO_APIKEY})
+  res.send({"text":"hello world"})
 })
 
 let port = process.env.PORT || 8080;
