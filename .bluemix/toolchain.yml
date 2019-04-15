@@ -49,10 +49,14 @@ services:
           PROD_REGION_ID: '{{form.pipeline.parameters.prod-region}}'
           PROD_RESOURCE_GROUP: '{{form.pipeline.parameters.prod-resource-group}}'
           PROD_CLUSTER_NAME: '{{form.pipeline.parameters.prod-cluster-name}}'
+          PROD_CLUSTER_NAMESPACE: '{{form.pipeline.parameters.prod-cluster-namespace}}'
         execute: true
+  # webide:
+  #   service_id: orion
 form:
   pipeline:
     parameters:
       app-name: '{{services.repo.parameters.repo_name}}'
+      prod-cluster-namespaces: default
     schema:
       $ref: deploy.json

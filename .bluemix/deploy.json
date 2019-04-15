@@ -55,7 +55,14 @@
           "type": "string",
           "pattern": "\\S"
       },
-     "app-name": {
+      "prod-cluster-namespace": {
+        "description": {
+          "$ref" : "#/messages/deploy.namespaceDescription"
+        },
+        "type": "string",
+        "pattern": "^[a-z0-9]([-a-z0-9]*[a-z0-9])?$"
+      },
+      "app-name": {
           "description": {
             "$ref": "#/messages/deploy.appDescription"
           },
@@ -70,7 +77,8 @@
     "registry-namespace",
     "prod-region",
     "prod-resource-group",
-    "prod-cluster-name"
+    "prod-cluster-name",
+    "prod-cluster-namespace"
   ],
   "form": [
      {
@@ -186,8 +194,9 @@
                 "title": ""
               },
               {
-                "type": "label",
-                "key": ""
+                "type": "text",
+                "key": "prod-cluster-namespace",
+                "readonly": false
               }
           ]
       },{
